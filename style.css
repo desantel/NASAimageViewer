@@ -1,0 +1,20 @@
+:root {
+    --primary: #6495ED;
+    --secondary: #006400;
+    --tertiary: #228B22;
+    --quatrinary: #8B4513;
+    --light: #FFF5EE;
+    --dark: #2F4F4F;
+    --error: rgb(228, 46, 1);
+    --border-radius: 0.3rem;
+  }
+
+html {
+    height: auto;
+  }
+
+body {
+    background-color: gray;
+    background-size: auto;
+}
+

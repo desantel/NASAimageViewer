@@ -5,10 +5,10 @@ const url = 'https://api.nasa.gov/planetary/apod?api_key=';
 const api_key = config.API_KEY;
 
 
-let fetchData = async () => {
+const fetchData = async () => {
     try {
-        let res = await fetch(`${url}${api_key}`);
-        let data = await res.json();
+        const res = await fetch(`${url}${api_key}`);
+        const data = await res.json();
         console.log(data)
     } catch (err) {
         console.log(err);
@@ -16,7 +16,19 @@ let fetchData = async () => {
 };
 
 let disData = data => {
-    
+    document.getElementById('title').textContent = data.title;
+    document.getElementById('date').textContent = data.date;
+    document.getElementById('picture').textContent = data.hdurl;
+    document.getElementById('description').textContent = data.explanation;
 }
+
+
+// let datePicker = () => {
+//     $(input[name = "daterange"]).daterangepicker({
+//         opens: 'left'
+//       }, function(start, end, label) {
+//         console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+//       });
+// }
 
 fetchData();

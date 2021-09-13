@@ -9,26 +9,90 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
     />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+    />
   </head>
   <body>
-    <section class="section">
-      <div class="container is-fluid">
-
-      </div>
-      <div class="container">
-        <div class="card">
-          <div class="card-header"></div>
-          <div class="card-image"></div>
-          <div class="card-content">
-            <p class="title is-4"></p>
-            <p class="subtitle is-6"></p>
-          </div>
-          <div class="content"></div>
-          <div class="card-footer">
-            <button class="button">Like</button>
+    <header>
+      <section class="section">
+        <div class="container is-fluid">
+          <div class="columns">
+            <div class="column">
+              <input class="input" type="text" placeholder="Mars" />
+              <input
+                class="button"
+                type="submit"
+                id="word"
+                value="Submit Search"
+              />
+            </div>
+            <div class="column">
+              <input
+                type="text"
+                name="daterange"
+                value="01/01/2018 - 01/15/2018"
+              />
+              <input
+                class="button"
+                type="submit"
+                id="date"
+                value="Submit Date"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </header>
+    <main>
+      <section class="section">
+        <div class="container is-fluid">
+          <div class="card">
+            <div class="card-header" id="title"></div>
+            <div class="card-image" id="picture"></div>
+            <div class="card-content">
+              <p class="title is-4" id="date"></p>
+            </div>
+            <div class="content" id="description"></div>
+            <div class="card-footer">
+              <button class="button">Like</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="config.js"></script>
+    <script src="./app.js"></script>
+    <script>
+        $(function () {
+          $('input[name = "daterange"]').daterangepicker(
+            {
+              opens: "left",
+            },
+            function (start, end, label) {
+              console.log(
+                "A new date selection was made: " +
+                  start.format("YYYY-MM-DD") +
+                  " to " +
+                  end.format("YYYY-MM-DD")
+              );
+            }
+          );
+        });
+      </script>
   </body>
 </html>
