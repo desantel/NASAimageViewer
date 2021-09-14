@@ -36,15 +36,34 @@ button.addEventListener('click', () => {
 })
 
 //function to add date params
+const dateBtn = document.getElementById("date");
+let dateInput = document.getElementById("dateInput");
 
 
+const inputSubmit = (event) => {
+  event.preventDefault();
 
-// let datePicker = () => {
-//     $(input[name = "daterange"]).daterangepicker({
-//         opens: 'left'
-//       }, function(start, end, label) {
-//         console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-//       });
-// }
+  let selDate = dateInput.value.trim();
+
+  if (selDate) {
+    fetchDateImg(date)
+  } else fetchData();
+};
+
+const fetchDateImg = async (date) => {
+  let selDate = dateInput.value.trim();
+  try {
+    const res = await fetch(`${url}${api_key}?date=${selDate}`);
+    const data = await res.json();
+    console.log(data);
+    console.log(res)
+    disData(data)
+  } catch (err) {
+    console.log(err);
+  }
+};
+
 
 fetchData();
+
+dateBtn.addEventListener('click', inputSubmit)

@@ -18,18 +18,15 @@
       src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
     ></script>
     <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
-    ></script>
-    <script
       src="https://kit.fontawesome.com/c6ee31e284.js"
       crossorigin="anonymous"
     ></script>
     <link
+      href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
       rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
     />
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
   </head>
   <body>
     <header>
@@ -37,7 +34,7 @@
         <div class="container is-fluid">
           <div class="columns">
             <div class="column">
-              <input type="text" name="date" value="01/01/2021" />
+              <input type="text" value="" id="dateInput" />
               <input
                 class="button"
                 type="submit"
@@ -88,37 +85,11 @@
     <script src="./app.js"></script>
     <script>
       $(function () {
-        $('input[name="date"]').daterangepicker(
-          {
-            singleDatePicker: true,
-            showDropdowns: true,
-            minYear: 1901,
-            maxYear: parseInt(moment().format("YYYY"), 10),
-          },
-          function (start, end, label) {
-            console.log(
-              "A new date selection was made: " + start.format("YYYY-MM-DD")
-            );
-          }
-        );
+        $("#dateInput").datepicker({
+          dateFormat: "yy-mm-dd",
+          altFormat: "yy-mm-dd",
+        });
       });
     </script>
-    <!-- <script>
-      $(function () {
-        $('input[name = "daterange"]').daterangepicker(
-          {
-            opens: "left",
-          },
-          function (start, end, label) {
-            console.log(
-              "A new date selection was made: " +
-                start.format("YYYY-MM-DD") +
-                " to " +
-                end.format("YYYY-MM-DD")
-            );
-          }
-        );
-      });
-    </script> -->
   </body>
 </html>
