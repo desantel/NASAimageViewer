@@ -29,9 +29,11 @@ let disData = (data) => {
 };
 
 //function to activate like button, 
-const likeBut = () => {
+const button = document.querySelector('#like')
 
-}
+button.addEventListener('click', () => {
+    button.classList.toggle('liked')
+})
 
 // let datePicker = () => {
 //     $(input[name = "daterange"]).daterangepicker({

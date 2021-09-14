@@ -21,6 +21,10 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"
     ></script>
+    <script
+      src="https://kit.fontawesome.com/c6ee31e284.js"
+      crossorigin="anonymous"
+    ></script>
     <link
       rel="stylesheet"
       type="text/css"
@@ -73,7 +77,19 @@
             <div class="content" id="date"></div>
             <div class="content" id="description"></div>
             <div class="card-footer">
-              <button class="button" id="like">Like</button>
+              <button class="button is-medium is-fullwidth button-like" id="like">
+                <span class="button-icon button--icon-default">
+                  <span class="fa fa-heart"></span>
+                </span>
+                <span class="button-icon button--icon-liked">
+                  <span class="fa fa-heart"></span>
+                </span>
+                <span class="button-content button-content--liked">
+                </span>
+                <span class="button-content button-content--default">
+                  Like
+                </span>
+              </button>
             </div>
           </div>
         </div>

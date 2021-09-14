@@ -7,6 +7,10 @@
     --dark: #2F4F4F;
     --error: rgb(228, 46, 1);
     --border-radius: 0.3rem;
+    --purple: rgb(218,112,214);
+    --white: #fff;
+    --black: #000;
+
   }
 
 html {
@@ -18,3 +22,67 @@ body {
     background-size: auto;
 }
 
+.button:hover {
+  box-shadow: 0px 3px 25px rgba(0, 0, 0, 0.2);
+  border-color: var(--purple);
+}
+
+.button-like {
+  padding: 1.5rem 1.5rem 1.5rem 6rem;
+  font-size: 2rem;
+  border-radius: 10px;
+  background: #fff;
+  transition: 1.5s cubic-bezier(.21,.04,.26,.99);
+}
+.button-like.liked {
+  background: var(--purple);
+  border-color: var(--purple);
+}
+
+/*-- Button Icon -- */
+.button-icon {
+  display: inline-block;
+  width: 32px;
+  height: 36px;
+  position: absolute;
+  left: 1.5rem;
+  transition: 1s cubic-bezier(.21,.04,.26,.99);
+  transform: rotate(0deg)
+}
+.button:hover .button-icon {
+  color: var(--purple);
+}
+.button.liked:hover .button-icon {
+  color: var(--black);
+}
+.liked .button--icon-default {
+  transform: rotate(-90deg)
+}
+.button:not(.liked).button--icon-liked {
+  transform: rotate(-90deg)
+}
+.liked .button--icon-default,
+.button--icon-liked {
+  opacity: 0;
+  color: #fff;
+  position: absolute;
+}
+.button--icon-default,
+.liked .button--icon-liked {
+  opacity: 1;
+  left: 1.5rem;
+}
+
+/*-- Button Content -- */
+.button-content {
+  transition: transform 0.1s ease;
+  display: inline-block;
+  /* position: absolute;
+  right: 0; */
+}
+.liked .button-content {
+  color: var(--white);
+}
+.button:hover.liked .button-content {
+  color: var(--black);
+}
