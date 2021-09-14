@@ -28,12 +28,16 @@ let disData = (data) => {
   document.getElementById('person').textContent = data.copyright;
 };
 
-//function to activate like button, 
+//function and addEventListener to activate like button 
 const button = document.querySelector('#like')
 
 button.addEventListener('click', () => {
     button.classList.toggle('liked')
 })
+
+//function to add date params
+
+
 
 // let datePicker = () => {
 //     $(input[name = "daterange"]).daterangepicker({
