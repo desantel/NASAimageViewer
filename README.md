@@ -1,4 +1,4 @@
-# Neighborhood Handyman
+# NASA Image Viewer
 
 ## Table of Contents
 - [Project Overview](#project-overview) 
