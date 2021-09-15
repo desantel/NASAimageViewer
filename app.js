@@ -54,21 +54,44 @@ const fetchDateImg = async (date) => {
   let selDate = dateInput.value.trim();
 
   try {
+    let card = document.querySelector(".card");
+    card.innerHTML = ""
+
     const res = await fetch(`${url}${api_key}&start_date=${selDate}`);
     const data = await res.json();
     console.log(data);
     console.log(res);
     for (let i = 0; i < data.length; i++) {
       let mulData = (data) => {
-        let setTitle = document.getElementById("title");
-        let newTitle = setTitle.textContent = data[2].title;
-        let newDate = document.getElementById("date").textContent = data[i].date;
-        let newImg = document.getElementById("picture").src = data[i].hdurl;
-        let newDes = document.getElementById("description").textContent =
-          data[i].explanation;
-        let newPer = document.getElementById("person").textContent = data[i].copyright;
+        let newCard = document.createElement('div');
+        let setCard = newCard.setAttribute('class', 'card');
+        card.append(newCard);
 
-        setTitle.append(newTitle);
+        let mulTitle = document.createElement("div");
+        mulTitle.textContent = data[i].title;
+        mulTitle.setAttribute('class', 'card-header');
+        newCard.append(mulTitle);
+
+        let mulPer = document.createElement('div')
+        mulPer.textContent = data[i].copyright
+        mulPer.setAttribute('class', 'content')
+        newCard.append(mulPer)
+
+        let mulDate = document.createElement('div')
+        mulDate.textContent = data[i].date
+        mulDate.setAttribute('class', 'content')
+        newCard.append(mulDate)
+
+        let mulPic = document.createElement('img');
+        mulPic.src = data[i].hdurl
+        newCard.append(mulPic)
+
+        let mulDes = document.createElement('div')
+        mulDes.textContent = data[i].explanation
+        mulDes.setAttribute('class', 'content')
+        newCard.append(mulDes)
+
+        // document.getElementById("person").textContent = data[i].copyright;
       };
       mulData(data);
     }
