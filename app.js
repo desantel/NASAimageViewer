@@ -1,4 +1,4 @@
-let card = document.querySelector('card');
+let card = document.querySelector("card");
 
 //url for api key
 const url = "https://api.nasa.gov/planetary/apod?api_key=";
@@ -12,8 +12,8 @@ const fetchData = async () => {
     const res = await fetch(`${url}${api_key}`);
     const data = await res.json();
     console.log(data);
-    console.log(data.date)
-    disData(data)
+    console.log(res);
+    disData(data);
   } catch (err) {
     console.log(err);
   }
@@ -25,45 +25,58 @@ let disData = (data) => {
   document.getElementById("date").textContent = data.date;
   document.getElementById("picture").src = data.hdurl;
   document.getElementById("description").textContent = data.explanation;
-  document.getElementById('person').textContent = data.copyright;
+  document.getElementById("person").textContent = data.copyright;
 };
 
-//function and addEventListener to activate like button 
-const button = document.querySelector('#like')
+//function and addEventListener to activate like button
+const button = document.querySelector("#like");
 
-button.addEventListener('click', () => {
-    button.classList.toggle('liked')
-})
+button.addEventListener("click", () => {
+  button.classList.toggle("liked");
+});
 
 //function to add date params
 const dateBtn = document.getElementById("date");
 let dateInput = document.getElementById("dateInput");
 
-
+//retrieves information from input bar
 const inputSubmit = (event) => {
   event.preventDefault();
 
   let selDate = dateInput.value.trim();
 
   if (selDate) {
-    fetchDateImg(date)
+    fetchDateImg(date);
   } else fetchData();
 };
 
 const fetchDateImg = async (date) => {
   let selDate = dateInput.value.trim();
+
   try {
-    const res = await fetch(`${url}${api_key}?date=${selDate}`);
+    const res = await fetch(`${url}${api_key}&start_date=${selDate}`);
     const data = await res.json();
     console.log(data);
-    console.log(res)
-    disData(data)
+    console.log(res);
+    for (let i = 0; i < data.length; i++) {
+      let mulData = (data) => {
+        let setTitle = document.getElementById("title");
+        let newTitle = setTitle.textContent = data[2].title;
+        let newDate = document.getElementById("date").textContent = data[i].date;
+        let newImg = document.getElementById("picture").src = data[i].hdurl;
+        let newDes = document.getElementById("description").textContent =
+          data[i].explanation;
+        let newPer = document.getElementById("person").textContent = data[i].copyright;
+
+        setTitle.append(newTitle);
+      };
+      mulData(data);
+    }
   } catch (err) {
     console.log(err);
   }
 };
 
-
 fetchData();
 
-dateBtn.addEventListener('click', inputSubmit)
+dateBtn.addEventListener("click", inputSubmit);
