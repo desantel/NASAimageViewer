@@ -1,27 +1,33 @@
 :root {
-    --primary: #6495ED;
-    --secondary: #006400;
-    --tertiary: #228B22;
-    --quatrinary: #8B4513;
-    --light: #FFF5EE;
-    --dark: #2F4F4F;
-    --error: rgb(228, 46, 1);
-    --border-radius: 0.3rem;
-    --purple: rgb(218,112,214);
-    --white: #fff;
-    --black: #000;
-
-  }
-
-html {
-    height: auto;
-  }
-
-body {
-    background-color: gray;
-    background-size: auto;
+  --error: rgb(228, 46, 1);
+  --border-radius: 0.3rem;
+  --purple: rgb(218, 112, 214);
+  --white: #fff;
+  --black: #000;
 }
 
+html {
+  height: auto;
+}
+
+body {
+  background-image: linear-gradient(
+    rgb(41, 46, 54),
+    rgb(19, 53, 107),
+    rgb(10, 71, 168),
+    rgb(158, 186, 232),
+    rgb(128, 74, 33),
+    rgb(128, 74, 33),
+    black
+  );
+  background-size: auto;
+  background-color: gray;
+}
+
+header {
+  background-image: linear-gradient(black, rgb(38, 39, 41), rgb(41, 46, 54));
+  color: silver;
+}
 .card {
   margin: 10px;
 }
@@ -36,7 +42,7 @@ body {
   font-size: 2rem;
   border-radius: 10px;
   background: #fff;
-  transition: 1.5s cubic-bezier(.21,.04,.26,.99);
+  transition: 1.5s cubic-bezier(0.21, 0.04, 0.26, 0.99);
 }
 .button-like.liked {
   background: var(--purple);
@@ -50,8 +56,8 @@ body {
   height: 36px;
   position: absolute;
   left: 1.5rem;
-  transition: 1s cubic-bezier(.21,.04,.26,.99);
-  transform: rotate(0deg)
+  transition: 1s cubic-bezier(0.21, 0.04, 0.26, 0.99);
+  transform: rotate(0deg);
 }
 .button:hover .button-icon {
   color: var(--purple);
@@ -60,10 +66,10 @@ body {
   color: var(--black);
 }
 .liked .button--icon-default {
-  transform: rotate(-90deg)
+  transform: rotate(-90deg);
 }
 .button:not(.liked).button--icon-liked {
-  transform: rotate(-90deg)
+  transform: rotate(-90deg);
 }
 .liked .button--icon-default,
 .button--icon-liked {

@@ -66,34 +66,41 @@ const fetchDateImg = async (date) => {
     console.log(res);
     for (let i = 0; i < data.length; i++) {
       let mulData = (data) => {
+        //create new card
         let newCard = document.createElement("div");
         newCard.setAttribute("class", "card");
         card.append(newCard);
 
+        //create new title
         let mulTitle = document.createElement("div");
         mulTitle.textContent = data[i].title;
         mulTitle.setAttribute("class", "card-header");
         newCard.append(mulTitle);
 
+        //create new author
         let mulPer = document.createElement("div");
         mulPer.textContent = data[i].copyright;
         mulPer.setAttribute("class", "content");
         newCard.append(mulPer);
 
+        //create new date
         let mulDate = document.createElement("div");
         mulDate.textContent = data[i].date;
         mulDate.setAttribute("class", "content");
         newCard.append(mulDate);
 
+        //create new pic
         let mulPic = document.createElement("img");
         mulPic.src = data[i].hdurl;
         newCard.append(mulPic);
 
+        //create new description
         let mulDes = document.createElement("div");
         mulDes.textContent = data[i].explanation;
         mulDes.setAttribute("class", "content");
         newCard.append(mulDes);
 
+        //create new footer with like button
         let mulFooter = document.createElement("div");
         mulFooter.setAttribute("class", "card-footer");
         newCard.append(mulFooter);
@@ -131,6 +138,7 @@ const fetchDateImg = async (date) => {
         conDef.textContent = "Like";
         mulBtn.append(conDef);
 
+        //like button functionality
         const button = document.querySelector("#like");
 
         button.addEventListener("click", () => {
