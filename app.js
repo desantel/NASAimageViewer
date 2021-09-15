@@ -139,10 +139,10 @@ const fetchDateImg = async (date) => {
         mulBtn.append(conDef);
 
         //like button functionality
-        const button = document.querySelector("#like");
+        const button = document.querySelectorAll("#like");
 
-        button.addEventListener("click", () => {
-          button.classList.toggle("liked");
+        button[i].addEventListener("click", () => {
+          button[i].classList.toggle("liked");
         });
       };
       mulData(data);
