@@ -138,7 +138,7 @@ const fetchDateImg = async (date) => {
     const data = await res.json();
     console.log(data);
     console.log(res);
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < 49; i++) {
       let mulData = (data) => {
         //create new card
         let newCard = document.createElement("div");
